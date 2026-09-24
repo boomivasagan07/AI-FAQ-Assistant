@@ -1,0 +1,1 @@
+require('dotenv').config();const app=require('./app'),connectDB=require('./config/db');const PORT=process.env.PORT||5000;(async()=>{try{await connectDB();app.listen(PORT,()=>console.log(`API: http://localhost:${PORT}`))}catch(e){console.error(e);process.exit(1)}})();

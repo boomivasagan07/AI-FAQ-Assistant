@@ -1,0 +1,2 @@
+const mongoose=require('mongoose');
+const s=new mongoose.Schema({question:{type:String,required:true,trim:true},answer:{type:String,required:true,trim:true},category:{type:String,required:true,trim:true,index:true},createdBy:{type:mongoose.Schema.Types.ObjectId,ref:'User',required:true,index:true},published:{type:Boolean,default:true}},{timestamps:true});s.index({question:'text',answer:'text',category:'text'});module.exports=mongoose.model('FAQ',s);

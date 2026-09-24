@@ -1,0 +1,1 @@
+const r=require('express').Router(),c=require('../controllers/categoryController'),{protect,allowRoles}=require('../middleware/authMiddleware');r.get('/',c.list);r.post('/',protect,allowRoles('admin'),c.create);module.exports=r;

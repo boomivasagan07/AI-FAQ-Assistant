@@ -1,0 +1,1 @@
+const {generateFaq}=require('../services/geminiService');exports.generate=async(req,res,next)=>{try{const{topic}=req.body;if(!topic)return res.status(400).json({success:false,message:'topic is required'});const x=await generateFaq(topic);res.json({success:true,topic,data:{...x,topic,generatedAt:new Date().toISOString()}})}catch(e){next(e)}};
